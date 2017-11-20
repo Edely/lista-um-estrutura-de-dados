@@ -7,22 +7,27 @@ int main(int argc, char *argv[]){
     int soma = 0;
     int numero = atoi(argv[1]);
     
-    int resultado = nove(numero, soma);
+    soma = nove(numero, soma);
+//    printf("%i\n", soma);
     return 0;
 }
 
-int nove(int number, soma){
-    int digito = number % 10;
-    int divisao = number / 10;
-    
-    
-    
-    
+int nove(int number, int soma){  
     if(number <=9){
+        number = number % 10;
         soma += number;
-    }else{
-        digito = nove();    
+        printf("%i\n", soma);
+        return soma;
     }
-    printf("%i\n", divisao);    
-    
+    else if(number > 9){
+        soma = nove(number, soma);
+        number = number / 10;
+        soma = number + soma;
+        printf("%i\n", soma);
+        return soma;
+    }  
+    else{
+        printf("%i\n", soma);
+        return soma;
+    }
 }

@@ -1,16 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int f91();
+int f91(int inteiro);
 
 int main(int argc, char *argv[]){
     
-    int argumento;
-    int n;
-    argumento = atoi(argv[1]);   
-    
+    int argumento, n;
+    scanf("%d", &argumento);  
     n = f91(argumento);
-    
     printf("%i", n);
     return 0;
 }
