@@ -4,30 +4,29 @@
 int nove();
 int main(int argc, char *argv[]){
     
-    int soma = 0;
-    int numero = atoi(argv[1]);
-    
-    soma = nove(numero, soma);
-//    printf("%i\n", soma);
+    int sum, inteiro, resto, n;
+    scanf("%d", &inteiro);
+    while(inteiro != 0){
+        n = nove(inteiro, sum, resto);
+        if(n % 9 == 0){
+            printf("%i is a multiple of 9 and has a degree", inteiro);
+        }
+            
+        scanf("%d", &inteiro);
+    }
     return 0;
 }
 
-int nove(int number, int soma){  
+int nove(int number, int soma, int resto){  
     if(number <=9){
-        number = number % 10;
         soma += number;
-        printf("%i\n", soma);
         return soma;
     }
-    else if(number > 9){
-        soma = nove(number, soma);
+    else{
+        resto = number % 10;
         number = number / 10;
-        soma = number + soma;
-        printf("%i\n", soma);
+        soma += resto;
+        soma = nove(number, soma, resto);
         return soma;
     }  
-    else{
-        printf("%i\n", soma);
-        return soma;
-    }
 }
